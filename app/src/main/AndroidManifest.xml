@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMAndroid">
         <activity
+            android:name=".AddUserActivity"
+            android:exported="true"
+            android:label="@string/title_activity_add_user"
+            android:theme="@style/Theme.MVVMAndroid.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
