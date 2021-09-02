@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMAndroid">
         <activity
+            android:name=".UserDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddUserActivity"
             android:exported="true"
             android:label="@string/title_activity_add_user"

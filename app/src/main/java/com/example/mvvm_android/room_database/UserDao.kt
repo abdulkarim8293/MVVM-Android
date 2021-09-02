@@ -1,8 +1,5 @@
 package com.example.mvvm_android.room_database
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface UserDao {
@@ -10,11 +7,15 @@ interface UserDao {
     @Insert
     fun insertUser(User: User)
 
+    @Update
+    suspend fun updateUsers(user: User)
+
+
     @Query("SELECT * FROM user_table")
-    fun loadAllUser(): List<User>
+    suspend fun loadAllUser(): List<User>
 
     @Delete
-    fun deleteUser(user: User)
+    suspend fun deleteUser(user: User)
 
 
 }
