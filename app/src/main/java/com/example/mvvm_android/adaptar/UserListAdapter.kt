@@ -11,7 +11,7 @@ import com.example.mvvm_android.OnItemClickListener
 import com.example.mvvm_android.R
 import com.example.mvvm_android.room_database.User
 
-class UserListAdapter(private val userList: List<User>?,private val onItemClickListener: OnItemClickListener)  : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
+class UserListAdapter(private val userList: List<User>?)  : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user_list, parent, false)
@@ -25,17 +25,7 @@ class UserListAdapter(private val userList: List<User>?,private val onItemClickL
         holder.userName.text = user?.name
         holder.phoneNumber.text = user?.phoneNumber
 
-        holder.editUser.setOnClickListener {
-            if (user != null) {
-                onItemClickListener.onItemEdit(user)
-            }
-        }
 
-        holder.deleteUser.setOnClickListener {
-            if (user != null) {
-                onItemClickListener.onItemDelete(user)
-            }
-        }
 
         Log.i("TAG","User List $user")
 

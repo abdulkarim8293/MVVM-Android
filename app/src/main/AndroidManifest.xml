@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMAndroid">
         <activity
+            android:name=".to_do_list.UpdateToDoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".to_do_list.AddToDoActivity"
+            android:exported="true" />
+        <activity
             android:name=".UserDetailsActivity"
             android:exported="true" />
         <activity
@@ -19,6 +25,9 @@
             android:theme="@style/Theme.MVVMAndroid.NoActionBar" />
         <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".to_do_list.ToDoListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
