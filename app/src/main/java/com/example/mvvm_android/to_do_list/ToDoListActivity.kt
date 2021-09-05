@@ -12,27 +12,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvm_android.OnItemClickListener
 import com.example.mvvm_android.R
-import com.example.mvvm_android.UserDetailsActivity
 import com.example.mvvm_android.adaptar.ToDoListAdapter
-import com.example.mvvm_android.adaptar.UserListAdapter
-import com.example.mvvm_android.room_database.DB
-import com.example.mvvm_android.room_database.User
+import com.example.mvvm_android.room_database.AppDatabase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
 
     private lateinit var adapter: ToDoListAdapter
     private lateinit var recyclerview: RecyclerView
-    private var db:DB? = null
+    private var appDatabase:AppDatabase? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_do_list)
 
-        db = DB.getInstance(this)
+        val actionBar = supportActionBar
+        actionBar!!.title = "To Do List"
+
+        appDatabase = AppDatabase.getInstance(this)
 
         recyclerview = findViewById(R.id.todo_recycler_view)
         recyclerview.layoutManager = LinearLayoutManager(this)
@@ -42,7 +41,7 @@ class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
         }*/
 
         lifecycleScope.launch {
-            val list = db?.getToDoDao()?.loadAllToDo()
+            val list = appDatabase?.getToDoDao()?.loadAllToDo()
             adapter = ToDoListAdapter(list,this@ToDoListActivity)
             recyclerview.adapter = adapter
             Log.i("MMM","List size is : $list")
@@ -51,6 +50,8 @@ class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
         findViewById<FloatingActionButton>(R.id.addToDoFAB).setOnClickListener {
             startActivity(Intent(this,AddToDoActivity::class.java))
         }
+
+        Log.i("ActivityLifeCycle","On Create")
 
 
     }
@@ -72,7 +73,7 @@ class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
 
             lifecycleScope.launch {
 
-                db?.getToDoDao()?.updateToDo(toDoData)
+                appDatabase?.getToDoDao()?.updateToDo(toDoData)
                 Toast.makeText(applicationContext,"Item deleted success", Toast.LENGTH_LONG).show()
             }
 
@@ -87,6 +88,40 @@ class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
         alertDialog.show()
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("ActivityLifeCycle","On Start")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("ActivityLifeCycle","On Resume")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("ActivityLifeCycle","On Restart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("ActivityLifeCycle","On Stop")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("ActivityLifeCycle","On Pause")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("ActivityLifeCycle","On Destroy")
+    }
+
+
+
+
 
 
 }

@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.lifecycle.lifecycleScope
 import com.example.mvvm_android.R
-import com.example.mvvm_android.room_database.DB
+import com.example.mvvm_android.room_database.AppDatabase
 import kotlinx.coroutines.launch
 
 class UpdateToDoActivity : AppCompatActivity() {
@@ -17,7 +17,10 @@ class UpdateToDoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_updatae_to_do)
 
-        val db = DB.getInstance(this)
+        val actionBar = supportActionBar
+        actionBar!!.title = "Update To Do"
+
+        val db = AppDatabase.getInstance(this)
 
         findViewById<ImageView>(R.id.backButtonIv).setOnClickListener {
             startActivity(Intent(this, ToDoListActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))

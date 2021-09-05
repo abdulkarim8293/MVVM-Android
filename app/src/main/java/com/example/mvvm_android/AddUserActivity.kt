@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.mvvm_android.room_database.User
-import com.example.mvvm_android.room_database.DB
+import com.example.mvvm_android.room_database.AppDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,7 @@ class AddUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_user)
 
-        val db = DB.getInstance(this)
+        val db = AppDatabase.getInstance(this)
 
         findViewById<Button>(R.id.saveBtn).setOnClickListener {
 

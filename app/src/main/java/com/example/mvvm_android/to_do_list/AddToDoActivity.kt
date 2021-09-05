@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.mvvm_android.R
-import com.example.mvvm_android.room_database.DB
+import com.example.mvvm_android.room_database.AppDatabase
 import kotlinx.coroutines.launch
 
 class AddToDoActivity : AppCompatActivity() {
@@ -19,7 +19,10 @@ class AddToDoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_to_do)
 
-        val db = DB.getInstance(this)
+        val actionBar = supportActionBar
+        actionBar!!.title = "Add To Do"
+
+        val db = AppDatabase.getInstance(this)
 
         findViewById<Button>(R.id.saveBtn).setOnClickListener {
 

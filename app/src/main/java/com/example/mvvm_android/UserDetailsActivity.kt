@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.mvvm_android.room_database.User
-import com.example.mvvm_android.room_database.DB
+import com.example.mvvm_android.room_database.AppDatabase
 import kotlinx.coroutines.launch
 
 class UserDetailsActivity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class UserDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
 
-        val db = DB.getInstance(this)
+        val db = AppDatabase.getInstance(this)
 
         val user: User? = intent.getSerializableExtra("user") as User?
 
