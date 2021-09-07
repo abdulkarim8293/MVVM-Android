@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" android:id="@+id/gr1">
+        <item
+            android:id="@+id/nav_get"
+            android:title="@string/menu_get" />
+
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/gr2">
+        <item
+            android:id="@+id/nav_post"
+            android:title="@string/menu_post" />
+    </group>
+
+    <group android:checkableBehavior="single" android:id="@+id/gr3">
+        <item
+            android:id="@+id/nav_query"
+            android:title="@string/menu_query" />
+    </group>
+   <group android:checkableBehavior="single" android:id="@+id/gr4">
+       <item
+           android:id="@+id/nav_delete"
+           android:title="@string/menu_delete" />
+   </group>
+    <group android:checkableBehavior="single" android:id="@+id/gr5">
+        <item
+            android:id="@+id/nav_put"
+            android:title="@string/menu_put" />
+    </group>
+</menu>

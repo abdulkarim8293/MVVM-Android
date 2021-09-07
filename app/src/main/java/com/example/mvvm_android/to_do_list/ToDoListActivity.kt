@@ -19,6 +19,8 @@ import kotlinx.coroutines.launch
 
 class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
 
+    private val TAG = "ActivityLifeCycle"
+
     private lateinit var adapter: ToDoListAdapter
     private lateinit var recyclerview: RecyclerView
     private var appDatabase:AppDatabase? = null
@@ -91,37 +93,33 @@ class ToDoListActivity : AppCompatActivity(),OnItemClickListener {
 
     override fun onStart() {
         super.onStart()
-        Log.i("ActivityLifeCycle","On Start")
+        Log.i(TAG,"On Start")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("ActivityLifeCycle","On Resume")
+        Log.i(TAG,"On Resume")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i("ActivityLifeCycle","On Restart")
+        Log.i(TAG,"On Restart")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("ActivityLifeCycle","On Stop")
+        Log.i(TAG,"On Stop")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("ActivityLifeCycle","On Pause")
+        Log.i(TAG,"On Pause")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("ActivityLifeCycle","On Destroy")
+        Log.i(TAG,"On Destroy")
     }
-
-
-
-
 
 
 }
