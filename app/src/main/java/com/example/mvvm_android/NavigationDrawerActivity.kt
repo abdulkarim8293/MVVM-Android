@@ -2,11 +2,18 @@ package com.example.mvvm_android
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.example.mvvm_android.databinding.ActivityNavigationDrawerBinding
+import com.example.mvvm_android.fragments.GetFragment
+import com.example.mvvm_android.fragments.PostFragment
+import com.example.mvvm_android.fragments.PutFragment
+import com.google.android.material.navigation.NavigationView
 
-class NavigationDrawerActivity : AppCompatActivity() {
+class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityNavigationDrawerBinding
 
@@ -26,6 +33,11 @@ class NavigationDrawerActivity : AppCompatActivity() {
             drawerLayout.open()
         }
 
+        binding.navView.setNavigationItemSelectedListener(this)
+
+        //loadFragment(GetFragment())
+
+
     }
 
 
@@ -35,5 +47,27 @@ class NavigationDrawerActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        binding.drawerLayout.close()
+        when(item.itemId){
+            R.id.nav_get ->{
+                loadFragment(GetFragment(),"Get Request")
+                Toast.makeText(this,"Get Method",Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.nav_post ->
+                loadFragment(PostFragment(),"Post Request")
+
+            R.id.nav_put ->
+                loadFragment(PutFragment(),"Put Request")
+        }
+        return true
+    }
+
+    private fun loadFragment(fragment: Fragment,title:String){
+        supportActionBar?.title = title
+        val fragment = supportFragmentManager.beginTransaction()
+        .replace(R.id.fragment_container,fragment).commit()
+    }
 
 }
