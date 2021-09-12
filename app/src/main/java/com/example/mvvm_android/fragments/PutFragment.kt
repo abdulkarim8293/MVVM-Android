@@ -11,6 +11,8 @@ import com.example.mvvm_android.R
 class PutFragment : Fragment() {
 
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

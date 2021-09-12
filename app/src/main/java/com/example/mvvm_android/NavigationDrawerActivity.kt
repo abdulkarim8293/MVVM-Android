@@ -13,6 +13,7 @@ import com.example.mvvm_android.fragments.PostFragment
 import com.example.mvvm_android.fragments.PutFragment
 import com.google.android.material.navigation.NavigationView
 
+
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityNavigationDrawerBinding
@@ -35,10 +36,21 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
         binding.navView.setNavigationItemSelectedListener(this)
 
+
         //loadFragment(GetFragment())
 
+        /*val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(AppConstant.BASE_URL)
+            .build()
+*/
 
     }
+
+
+
+
+
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
