@@ -24,4 +24,8 @@
     <string name="menu_put">Put</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trip_request">ট্রিপ রিকোয়েস্ট</string>
+    <string name="cars">গাড়িসমূহ</string>
+    <string name="waiting_bid">অপেক্ষামান বিড</string>
+    <string name="trip_details">ট্রিপের বিবরণ</string>
 </resources>

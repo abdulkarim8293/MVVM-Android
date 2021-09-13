@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/trip_request_nav"
+        android:title="@string/trip_request"
+        android:icon="@drawable/ic_watch_later_24"/>
+
+    <item android:id="@+id/cars_nav"
+        android:title="@string/cars"
+        android:icon="@drawable/ic_car_24"/>
+
+    <item android:id="@+id/waiting_bid_nav"
+        android:title="@string/waiting_bid"
+        android:icon="@drawable/ic_swap_calls_24"/>
+
+    <item android:id="@+id/trip_details_nav"
+        android:title="@string/trip_details"
+        android:icon="@drawable/ic_forward_30_24"/>
+</menu>
