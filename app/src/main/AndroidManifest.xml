@@ -12,14 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMAndroid">
         <activity
-            android:name=".bottom_navigation.BottomNavigationActivity"
-            android:theme="@style/Theme.MVVMAndroid.NoActionBar"
-            android:exported="true">
+            android:name=".sharedpreferences.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MVVMAndroid.NoActionBar"/>
+        <activity
+            android:name=".sharedpreferences.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MVVMAndroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".bottom_navigation.BottomNavigationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MVVMAndroid.NoActionBar">
+            
         </activity>
         <activity
             android:name=".view_pager.ViewPagerActivity"
@@ -29,9 +39,7 @@
             android:name=".NavigationDrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/Theme.MVVMAndroid.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.MVVMAndroid.NoActionBar" />
         <activity
             android:name=".to_do_list.UpdateToDoActivity"
             android:exported="true" />
